@@ -1,0 +1,100 @@
+.container .new_posting #posting_textarea{
+	width: 300px;
+	height: 120px;
+	resize: none;
+}
+
+
+.bgCover { background:#000; position:absolute; left:0; top:0; display:none; overflow:hidden }
+
+.OverlayBox {
+    position:absolute;
+    display:none;
+    width:500px;
+    height:300px;
+    background:#fff;
+}
+
+.overlayContent {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+}
+
+#overlay_div { 
+height: 100%; 
+}
+
+.overlayContent #close_map_btn {
+    position: absolute;
+    top: 0px; 
+    right: 0px;
+}
+
+.container .posts .post {
+    margin-bottom: 2px;
+    width: 60%;
+    height: 100px;
+    border: 0px solid #D3D3F3;
+    padding: 5px;
+    background: white;
+}
+
+.container .friend_content {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    border: 1px solid #D3D3F3;
+    padding: 10px;
+    background: white;
+}
+
+.container .new_posting {
+    margin-bottom: 3px;
+    width: 60%;
+    height: 120px;
+    border: 1px solid #D3D3F3;
+    padding: 10px;
+    background: white;
+}
+
+.container .UserProfile {
+    position: relative;
+    width: 300px;
+    height: 175px;
+    border: 1px solid #D3D3F3;
+    padding: 10px;
+    background: white;
+}
+
+textarea {
+    height: auto !important;
+}
+
+textarea input[type=button] {
+    float: right !important;
+}
+
+.posts h3,
+.posts #head{
+    font-size: 12px;;
+}
+
+.posts h3, .posts time {
+    display: inline;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;    
+}
+
+.posts h3 {
+    font-weight: bold;
+}
+
+.posts button{
+    float: right;
+}
+
+
+body { background: #E6E6E6 !important; }
