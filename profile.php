@@ -72,7 +72,7 @@ if(!isset($_SESSION['login_user'])) {
 				<div class="col-sm-9">
 					<div class="new_posting">
 						<form>
-							<textarea name="posting_textbox" id="posting_textarea" maxlength="200" cols="25" rows="3"></textarea>
+							<textarea name="posting_textbox" id="posting_textarea" maxlength="200" cols="64" rows="3"></textarea>
 							</br>
 							<td><span class="word_cnt">200</span></td>
 							<!--<input type="button" id="submit_post" value="Post">-->

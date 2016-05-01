@@ -133,21 +133,22 @@ $(document).ready(function() {
 			}, 
 			function(data) {
                     $("form")[0].reset();
-			    	var post_array= $.parseJSON(data);
+			var post_array= $.parseJSON(data);
                     var div_s = "<div class=\"post\" data-value='" + post_array[0].Post_ID + "'>";
                     var desc = "<p>" + post_desc + "</p>";
                     var geo = "<span style='display:none' id=\"geo\">" + lat + " " + lon + "</span>";
                     var mapBtn = "<button class=\"open_map\">Map</button>";
                     var time = "<span>" + timestamp + "</span>";
                     var firstName = "<h3>" + post_array[0].Firstname + "</h3>";
-                    var delbtn= "<button id=\"del_post\">Delete</button>";
+                    var delbtn = "<button type=\"button\" class=\"btn btn-danger btn-xs\" id=\"del_post\">Delete<span class=\"glyphicon glyphicon-remove\"></span></button>";
                     var div_e = "</div>";
                     var listPcpBtn = "<button id=\"list_ptcp\">List</button>";
-                    var out = div_s + firstName + delbtn + desc + mapBtn + geo + listPcpBtn + time +  div_e;
+                    var out = div_s + firstName + "<span id=\"time\"> " + time + "</span>" + delbtn + desc + mapBtn + geo + listPcpBtn +  div_e;
                     $('#posts').prepend(out);
                     $(".word_cnt").text(200);
 			});
 		}
+		return false;
 	});
 	
 	
