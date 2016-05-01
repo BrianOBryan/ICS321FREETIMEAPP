@@ -15,6 +15,7 @@ if(!isset($_SESSION['login_user'])) {
 		<script src="js/render.js"></script>
 		<script src="js/posting.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA_VTS6otdV5SUrMIEtkCk189jKBkq4QW8" async defer></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<style type="text/css">
 			html, body { height: 100%; margin: 0; padding: 0; }
 			#map { height: 100%; }
@@ -22,6 +23,7 @@ if(!isset($_SESSION['login_user'])) {
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/navbar.css">
 		<link rel="stylesheet" href="css/posting.css">
+		<link rel="stylesheet" href="css/friends.css">
 	</head>
 	<body>
         <header>
@@ -63,7 +65,21 @@ if(!isset($_SESSION['login_user'])) {
 							<div class="friend_content">
 								<div class="friend_list">
 									<h3>Friends</h3>
-									<button class="add_friend">+</button>
+									<div class="dropdown">
+									  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="btn-add-friend">+
+									  </button>
+									  <ul class="dropdown-menu">
+									    <br/>
+									    <br/>
+									    <div style="text-align:center;" id="add-friend-code">
+  									    	<input type="text" id="friend_code" placeholder="tesT"><br>
+									    </div>
+									    <label id="error-msg" style="float:left; margin-left:12px; color:red; font-weight:normal;">plcholder</label>
+									    <div style="float:right; margin-right:12px; display:inline;" id="add-friend-div">
+									    	<button id="add_friend">Submit</button>
+									    </div>								    
+									  </ul>
+									</div>
 								</div>
 							</div>
 						</div>

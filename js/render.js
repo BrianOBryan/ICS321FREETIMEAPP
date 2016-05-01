@@ -89,4 +89,14 @@ window.onload = function() {
             }
         });
     });
+    
+    $(document).on('click', '#add_friend', function() {    
+        $.post("add_friend.php", {
+            key: key,
+        },
+        function (data) { 
+            if (data == "") {
+            }
+        });
+    });
 }

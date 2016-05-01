@@ -1,0 +1,10 @@
+.dropdown-menu {
+	width: 200px;
+	height: 100px;
+	
+}
+
+#btn-add-friend {
+        text-align: center;
+	padding: 3px 8px;
+}
