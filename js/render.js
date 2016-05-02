@@ -77,6 +77,15 @@ window.onload = function() {
 		    		$('.friend_list').append(out);
 		    	}
 	    });
+	    
+	    $.get("display_profile.php", 
+	        function (data) { 
+		    	if (data != "") {
+		    		var username = data;
+				$('#lbl-username').text(username);
+			}
+				    	
+	    });
 
     
     $(document).on('click', '#removeFriend', function() {    

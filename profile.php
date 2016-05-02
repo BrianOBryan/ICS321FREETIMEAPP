@@ -59,6 +59,7 @@ if(!isset($_SESSION['login_user'])) {
 						<div class="row">
 							<div class="UserProfile">
 								<h3> Profile </h3>
+								<label id="lbl-username"></label>
 							</div>
 						</div>
 						<div class="row">
