@@ -10,7 +10,6 @@
 }
 
 #removeFriend {
-	float: right;
+	float: right !important;
 }
-
 	

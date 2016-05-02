@@ -41,7 +41,7 @@ if(!isset($_SESSION['login_user'])) {
      		 <!--<li><a href="#" id="logout">Logout</a></li> -->
      		 
    	 	</ul>
-   	 	<ul class="nav navbar-nav navbar-right" style="margin-right:500px;">
+   	 	<ul class="nav navbar-nav navbar-right" style="margin-right:300px;">
 	     	 <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
 	     	 <li><a href="preferences.php">Preferences</a></li>
 	    	 <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -55,7 +55,7 @@ if(!isset($_SESSION['login_user'])) {
 		<div class="container" id="container">
 		
 
-					<div class="col-sm-3">
+					<div class="col-sm-3" style="margin-right:10px;">
 						<div class="row">
 							<div class="UserProfile">
 								<h3> Profile </h3>
@@ -78,7 +78,7 @@ if(!isset($_SESSION['login_user'])) {
 									    </div>
 									    <label id="error-msg" style="float:left; margin-left:12px; color:red; font-weight:normal;"></label>
 									    <div style="float:right; margin-right:12px; display:inline;" id="add-friend-div">
-									    	<button id="add_friend">Submit</button>
+									    	<button type="button" class ="btn btn-success btn-xs" id="add_friend">Submit</button>
 									    </div>								    
 									  </ul>
 									</div>
@@ -87,7 +87,7 @@ if(!isset($_SESSION['login_user'])) {
 						</div>
 					</div>
 
-				<div class="col-sm-9">
+				<div class="col-sm-6">
 					<div class="new_posting">
 						<form>
 							<textarea name="posting_textbox" id="posting_textarea" maxlength="200" cols="64" rows="3"></textarea>

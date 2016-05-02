@@ -64,7 +64,7 @@ $(document).ready(function() {
     
 	$(window).bind('resize',showOverlayBox);
 	
-	$( document ).on( 'click', '.open_map', function() {
+	$( document ).on( 'click', '#open_map', function() {
         doOverlayOpen();
 		var parent = $(this).parent();
         var geo = $(parent).find('#geo').text();
@@ -137,12 +137,12 @@ $(document).ready(function() {
                     var div_s = "<div class=\"post\" data-value='" + post_array[0].Post_ID + "'>";
                     var desc = "<p>" + post_desc + "</p>";
                     var geo = "<span style='display:none' id=\"geo\">" + lat + " " + lon + "</span>";
-                    var mapBtn = "<button class=\"open_map\">Map</button>";
+                    var mapBtn = "<button type=\"button\" class=\"btn btn-info\" id=\"open_map\">Map</button>";
                     var time = "<span>" + timestamp + "</span>";
                     var firstName = "<h3>" + post_array[0].Firstname + "</h3>";
                     var delbtn = "<button type=\"button\" class=\"btn btn-danger btn-xs\" id=\"del_post\">Delete<span class=\"glyphicon glyphicon-remove\"></span></button>";
                     var div_e = "</div>";
-                    var listPcpBtn = "<button id=\"list_ptcp\">List</button>";
+                    var listPcpBtn = "<button type=\"button\" class=\"btn btn-info\" id=\"list_ptcp\" style=\"float: left\">List</button>";
                     var out = div_s + firstName + "<span id=\"time\"> " + time + "</span>" + delbtn + desc + mapBtn + geo + listPcpBtn +  div_e;
                     $('#posts').prepend(out);
                     $(".word_cnt").text(200);
@@ -173,7 +173,7 @@ $(document).ready(function() {
 	});
     
     $(document).on('click', '#hangout', function() {
-        var t = $(this);
+        var t = $(this).toggleClass('btn btn-danger btn-sm');
 		var parent = $(this).parent();
         var post_id = $(parent).attr("data-value");
         $.post("participate.php", {
@@ -181,14 +181,14 @@ $(document).ready(function() {
                 }, 
                 function(data) {
                     if (data == "") {
-                        t.text("Un-Hangout");
-                        t.attr('id','unhangout'); 
+                        t.text("Ditch");
+                        t.attr('id','ditch'); 
                     }
         });
 	});
     
-    $(document).on('click', '#unhangout', function() {
-        var t = $(this);
+    $(document).on('click', '#ditch', function() {
+        var t = $(this).toggleClass('btn btn-danger btn-sm');
 		var parent = $(this).parent();
         var post_id = $(parent).attr("data-value");
         $.post("unparticipate.php", {
