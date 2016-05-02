@@ -65,22 +65,24 @@ if(!isset($_SESSION['login_user'])) {
 							<div class="friend_content">
 								<div class="friend_list">
 									<h3>Friends</h3>
-									<div class="dropdown">
+									
+								</div>
+								<div class="dropdown">
 									  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="btn-add-friend">+
 									  </button>
 									  <ul class="dropdown-menu">
-									    <br/>
+									    <label style="color:grey; margin-left:5px;">Your 6 digit id is: <span id="user_id"><button id="show-id">SHOWID</button></span></label>
 									    <br/>
 									    <div style="text-align:center;" id="add-friend-code">
-  									    	<input type="text" id="friend_code" placeholder="tesT"><br>
+  									    	<input type="text" id="friend_code" placeholder="tesT" size="30"><br>
 									    </div>
-									    <label id="error-msg" style="float:left; margin-left:12px; color:red; font-weight:normal;">plcholder</label>
+									    <label id="error-msg" style="float:left; margin-left:12px; color:red; font-weight:normal;"></label>
 									    <div style="float:right; margin-right:12px; display:inline;" id="add-friend-div">
 									    	<button id="add_friend">Submit</button>
 									    </div>								    
 									  </ul>
 									</div>
-								</div>
+								
 							</div>
 						</div>
 					</div>

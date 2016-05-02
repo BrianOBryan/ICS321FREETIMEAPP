@@ -66,15 +66,17 @@ window.onload = function() {
         });
     }
     
-    $.get("list_friends.php", 
-        function (data) { 
-	    	var friends = $.parseJSON(data);
-	    	for (i = 0; i < friends.length; i++) {
-                var removeFriendBtn = "<button class=\"removeFriend\">Remove Friend</button>";
-	    		var out = "<li value=" + friends[i].User_ID + ">" + friends[i].Firstname + removeFriendBtn + "</li>";
-	    		$('.friend_list').append(out);
-	    	}
-    });
+    
+	    $.get("list_friends.php", 
+	        function (data) { 
+		    	var friends = $.parseJSON(data);
+		    	for (i = 0; i < friends.length; i++) {
+	                var removeFriendBtn = "<button class=\"removeFriend\">Remove Friend</button>";
+		    		var out = "<li value=" + friends[i].User_ID + ">" + friends[i].Firstname + removeFriendBtn + "</li>";
+		    		$('.friend_list').append(out);
+		    	}
+	    });
+
     
     $(document).on('click', '.removeFriend', function() {    
         var t = $(this);
@@ -90,13 +92,33 @@ window.onload = function() {
         });
     });
     
-    $(document).on('click', '#add_friend', function() {    
+    $(document).on('click', '#add_friend', function() {
+    	var key = $('#friend_code').val();   
         $.post("add_friend.php", {
             key: key,
         },
         function (data) { 
             if (data == "") {
+                $('#error-msg').text("");	
+            }
+            else {
+            	$('#error-msg').text(data);	
             }
         });
+        return false;
+    });
+
+    $(document).on('click', '#show-id', function() {  
+        var t = $(this);
+        var parent = $(t).parent();
+        $.get("gen_id.php", 
+       
+        function (data) { 
+        	if(data != ""){
+			t.remove();
+			parent.append(data);
+		}
+        });
+	 return false;
     });
 }
