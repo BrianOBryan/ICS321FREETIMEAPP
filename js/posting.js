@@ -137,13 +137,13 @@ $(document).ready(function() {
                     var div_s = "<div class=\"post\" data-value='" + post_array[0].Post_ID + "'>";
                     var desc = "<p>" + post_desc + "</p>";
                     var geo = "<span style='display:none' id=\"geo\">" + lat + " " + lon + "</span>";
-                    var mapBtn = "<button type=\"button\" class=\"btn btn-info\" id=\"open_map\">Map</button>";
+                    var mapBtn = "<button type=\"button\" class=\"btn btn-sm btn-info\" id=\"open_map\">Map</button>";
                     var time = "<span>" + timestamp + "</span>";
                     var firstName = "<h3>" + post_array[0].Firstname + "</h3>";
                     var delbtn = "<button type=\"button\" class=\"btn btn-danger btn-xs\" id=\"del_post\">Delete<span class=\"glyphicon glyphicon-remove\"></span></button>";
                     var div_e = "</div>";
-                    var listPcpBtn = "<button type=\"button\" class=\"btn btn-info\" id=\"list_ptcp\" style=\"float: left\">List</button>";
-                    var out = div_s + firstName + "<span id=\"time\"> " + time + "</span>" + delbtn + desc + mapBtn + geo + listPcpBtn +  div_e;
+                    var listPcpBtn = "<button type=\"button\" class=\"btn btn-sm btn-info\" id=\"list_ptcp\" style=\"float: left\">List</button>";
+                    var out = div_s + firstName + "<span id=\"time\"> " + time + "</span>" + delbtn + desc + mapBtn + geo + listPcpBtn + "<br/><br/>" + div_e;
                     $('#posts').prepend(out);
                     $(".word_cnt").text(200);
 			});
@@ -173,7 +173,7 @@ $(document).ready(function() {
 	});
     
     $(document).on('click', '#hangout', function() {
-        var t = $(this).toggleClass('btn btn-danger btn-sm');
+        var t = $(this);
 		var parent = $(this).parent();
         var post_id = $(parent).attr("data-value");
         $.post("participate.php", {
@@ -181,6 +181,7 @@ $(document).ready(function() {
                 }, 
                 function(data) {
                     if (data == "") {
+                   	 t.toggleClass('btn btn-danger btn-sm');
                         t.text("Ditch");
                         t.attr('id','ditch'); 
                     }
@@ -188,7 +189,7 @@ $(document).ready(function() {
 	});
     
     $(document).on('click', '#ditch', function() {
-        var t = $(this).toggleClass('btn btn-danger btn-sm');
+        var t = $(this);
 		var parent = $(this).parent();
         var post_id = $(parent).attr("data-value");
         $.post("unparticipate.php", {
@@ -196,6 +197,7 @@ $(document).ready(function() {
                 }, 
                 function(data) {
                     if (data == "") {
+                    t.toggleClass('btn btn-danger btn-sm');
                         t.text("Hangout");
                         t.attr('id','hangout'); 
                     }
@@ -213,17 +215,17 @@ $(document).ready(function() {
                 function(data) {
                     if (data != "") {
                         var ptcps = $.parseJSON(data);
-                        var ul_s = "<ul>";
+                        var ul_s = "<ul style=\"list-style:none;\">";
                         var ul_e = "</ul>";
-                        $('#overlay_div').append(ul_s);
+                        var out = ul_s;
                         for (i = 0; i < ptcps.length; i++) {
                             var li_s = "<li>";
                             var li_e = "</li>";
                             var fn = ptcps[i].Firstname;
-                            var out = li_s + fn + li_e;
-                            $('#overlay_div').append(out);
+                            out = out + li_s + fn + li_e;
                         }
-                        $('#overlay_div').append(ul_e);
+                        
+                        $('#overlay_div').append(out + ul_e);
                     }
         });
 	});
