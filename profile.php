@@ -30,7 +30,7 @@ if(!isset($_SESSION['login_user'])) {
         <nav class="navbar navbar-default">
   	    <div class="container-fluid">
     		<div class="navbar-header">
-     		    <div class="navbar-brand">Free Time App</div>
+     		    <div class="navbar-brand" style="margin-left:300px;">Free Time App</div>
     		</div>
     		
    		<ul class="nav navbar-nav">
@@ -41,7 +41,7 @@ if(!isset($_SESSION['login_user'])) {
      		 <!--<li><a href="#" id="logout">Logout</a></li> -->
      		 
    	 	</ul>
-   	 	<ul class="nav navbar-nav navbar-right">
+   	 	<ul class="nav navbar-nav navbar-right" style="margin-right:500px;">
 	     	 <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
 	     	 <li><a href="preferences.php">Preferences</a></li>
 	    	 <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -74,7 +74,7 @@ if(!isset($_SESSION['login_user'])) {
 									    <label style="color:grey; margin-left:5px;">Your 6 digit id is: <span id="user_id"><button id="show-id">SHOWID</button></span></label>
 									    <br/>
 									    <div style="text-align:center;" id="add-friend-code">
-  									    	<input type="text" id="friend_code" placeholder="tesT" size="30"><br>
+  									    	<input type="text" id="friend_code" placeholder="Enter 6 digit Friend ID here" size="30"><br>
 									    </div>
 									    <label id="error-msg" style="float:left; margin-left:12px; color:red; font-weight:normal;"></label>
 									    <div style="float:right; margin-right:12px; display:inline;" id="add-friend-div">

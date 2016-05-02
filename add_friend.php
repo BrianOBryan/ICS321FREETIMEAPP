@@ -20,7 +20,7 @@ $key = $_POST['key'];
 $key = stripslashes($key);
 $key = mysql_real_escape_string($key);
 
-if (!ctype_digit($testcase)) {
+if (!ctype_digit($key)) {
     $error = "Invalid ID";
 }
  else {

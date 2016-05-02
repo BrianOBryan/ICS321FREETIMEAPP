@@ -71,14 +71,14 @@ window.onload = function() {
 	        function (data) { 
 		    	var friends = $.parseJSON(data);
 		    	for (i = 0; i < friends.length; i++) {
-	                var removeFriendBtn = "<button class=\"removeFriend\">Remove Friend</button>";
+	                var removeFriendBtn = "<button id=\"removeFriend\">Remove Friend</button>";
 		    		var out = "<li value=" + friends[i].User_ID + ">" + friends[i].Firstname + removeFriendBtn + "</li>";
 		    		$('.friend_list').append(out);
 		    	}
 	    });
 
     
-    $(document).on('click', '.removeFriend', function() {    
+    $(document).on('click', '#removeFriend', function() {    
         var t = $(this);
         var parent = $(t).parent();
         var friend_id = $(parent).attr("value");
