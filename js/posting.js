@@ -142,7 +142,7 @@ $(document).ready(function() {
                     var firstName = "<h3>" + post_array[0].Firstname + "</h3>";
                     var delbtn = "<button type=\"button\" class=\"btn btn-danger btn-xs\" id=\"del_post\">Delete<span class=\"glyphicon glyphicon-remove\"></span></button>";
                     var div_e = "</div>";
-                    var listPcpBtn = "<button type=\"button\" class=\"btn btn-sm btn-info\" id=\"list_ptcp\" style=\"float: left\">List</button>";
+                    var listPcpBtn = "<button type=\"button\" class=\"btn btn-sm btn-info\" id=\"list_ptcp\" data-toggle=\"modal\" data-target=\"#myModal\" style=\"float: left\">List</button>";
                     var out = div_s + firstName + "<span id=\"time\"> " + time + "</span>" + delbtn + desc + mapBtn + geo + listPcpBtn + "<br/><br/>" + div_e;
                     $('#posts').prepend(out);
                     $(".word_cnt").text(200);
@@ -205,7 +205,6 @@ $(document).ready(function() {
 	});
     
     $(document).on('click', '#list_ptcp', function() {
-        doOverlayOpen();
         var t = $(this);
 		var parent = $(this).parent();
         var post_id = $(parent).attr("data-value");
@@ -225,7 +224,7 @@ $(document).ready(function() {
                             out = out + li_s + fn + li_e;
                         }
                         
-                        $('#overlay_div').append(out + ul_e);
+                        $('#modal-body').append(out + ul_e);
                     }
         });
 	});

@@ -46,7 +46,7 @@ window.onload = function() {
                     var listPcpBtn;
                     if (post_array[i].isOwner == 'true'){
                         username = "<h3 style=\"background-color: yellow\">" + post_array[i].Firstname + "</h3>";
-                        listPcpBtn = "<button type=\"button\" class=\"btn btn-sm btn-info btn-\" id=\"list_ptcp\" style=\"float: left\">List</button>";
+                        listPcpBtn = "<button type=\"button\" class=\"btn btn-sm btn-info\" id=\"list_ptcp\" data-toggle=\"modal\" data-target=\"#myModal\" style=\"float: left\">List</button>";
                         deletebtn= "<button type=\"button\" class=\"btn btn-danger btn-xs\" id=\"del_post\">Delete<span class=\"glyphicon glyphicon-remove\"></span></button>";
                         hangoutbtn = "";
                     }

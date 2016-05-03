@@ -25,18 +25,28 @@ $newemail = $_POST['newemail'];
 $newpass = stripslashes($newpass);
 $newpass = mysql_real_escape_string($newpass);
 
+$unencryptedNewPass = $newpass;
+
 $curpass = stripslashes($curpass);	
 $curpass = mysql_real_escape_string($curpass);
 
 $newemail = stripslashes($newemail );
 $newemail = mysql_real_escape_string($newemail);
 	
-	
+
 if ($curpass == "" && $newpass == "") {
-	if ($newemail != ""){
-		$sql="UPDATE Account SET Email = ".$newemail." WHERE User_ID = ".$userID;
-		$table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
-	}
+    $sql="SELECT * FROM Account WHERE Email = ".$newemail;
+    $table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        
+    if (mysql_num_rows($table) != 0) {
+        $error = "Email is already taken!";
+    } 
+    else {
+        if ($newemail != ""){
+            $sql="UPDATE Account SET Email = ".$newemail." WHERE User_ID = ".$userID;
+            $table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        }
+    }
 }
 else if ($curpass != "" && $newpass != "" && $newemail == ""){
 		
@@ -50,8 +60,13 @@ else if ($curpass != "" && $newpass != "" && $newemail == ""){
 		$error = "Current password does not match";
 	} 
 	else {
-		$sql="UPDATE Account SET Password = '".$newpass."' WHERE User_ID = ".$userID;
-		$table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        if (strlen($unencryptedNewPass) < 8) {
+            $error = "New password must be > 8 characters";
+        }
+        else {
+            $sql="UPDATE Account SET Password = '".$newpass."' WHERE User_ID = ".$userID;
+            $table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        }
 	}
 }
 else {
@@ -66,10 +81,21 @@ else {
 		$error = "Current password does not match";
 	} 
 	else {
-		$sql="UPDATE Account SET Password = '".$newpass."', Email = ".$newemail." WHERE User_ID = ".$userID;
-		$table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        $sql="SELECT * FROM Account WHERE Email = ".$newemail;
+        $table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        
+        if (mysql_num_rows($table) != 0) {
+            $error = "Email is already taken!";
+        } else if (strlen($unencryptedNewPass) < 8) {
+             $error = "New password must be > 8 characters";
+        }
+        else {
+            $sql="UPDATE Account SET Password = '".$newpass."', Email = ".$newemail." WHERE User_ID = ".$userID;
+            $table = mysql_query($sql, $conn) or die($sql . " : " . mysql_error());
+        }
 	}
 }
 mysql_close($conn);
+
 echo $error;
 ?>
