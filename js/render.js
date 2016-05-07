@@ -25,7 +25,7 @@ window.onload = function() {
 		lat = tlat;
 		lon = tlon;
     }
-
+    
     function getPosts() {
         $.get("display_posts.php", {
                 lat: lat,
@@ -66,7 +66,6 @@ window.onload = function() {
                 }
         });
     }
-    
     
 	    $.get("list_friends.php", 
 	        function (data) { 
